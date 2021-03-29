@@ -1,10 +1,10 @@
 import { LocalStrategy } from './local.strategy'
 import { Test, TestingModule } from '@nestjs/testing'
-import { AuthService } from './auth.service'
-import { UsersService } from '../users/users.service'
+import { AuthService } from '../auth.service'
+import { UsersService } from '../../users/users.service'
 import { getRepositoryToken } from '@nestjs/typeorm'
-import { userRepository } from '../users/mock/user.repository'
-import { User } from '../users/user.entity'
+import { userRepository } from '../../users/mock/user.repository'
+import { User } from '../../users/user.entity'
 import { UnauthorizedException } from '@nestjs/common'
 
 describe('LocalStrategy', () => {
