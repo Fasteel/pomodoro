@@ -1,0 +1,5 @@
+-[] Installer jest
+-[] Garder le minimum de choses
+-[] Ajouter le bouton google
+-[] Regarder le retour
+-[] Appler l'api pour sauvegarder les choses
