@@ -1,10 +1,8 @@
 import { Module } from '@nestjs/common'
-import { AuthService } from './auth.service'
-import { LocalStrategy } from './local/local.strategy'
-import { AuthController } from './auth.controller'
-import { UsersModule } from '../users/users.module'
+import { LocalStrategy } from './strategy'
+import { AuthController, AuthService } from '.'
+import UsersModule, { UserEntity } from '../users'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { User } from '../users/user.entity'
 
 @Module({
   imports: [
@@ -14,11 +12,11 @@ import { User } from '../users/user.entity'
       host: 'localhost',
       database: 'pmdr',
       synchronize: true,
-      entities: [User],
+      entities: [UserEntity],
       keepConnectionAlive: true
     })
   ],
   controllers: [AuthController],
   providers: [AuthService, LocalStrategy]
 })
-export class AuthModule {}
+export default class AuthModule {}

@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common'
-import { User } from './user.entity'
+import { UserEntity } from './'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
 
 @Injectable()
-export class UsersService {
+export default class UsersService {
   constructor (
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>
+    @InjectRepository(UserEntity)
+    private readonly userRepository: Repository<UserEntity>
   ) {}
 
-  async findOne (username: string): Promise<User | undefined> {
+  async findOne (username: string): Promise<UserEntity | undefined> {
     return await this.userRepository.findOne({ username })
   }
 }

@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { UsersService } from './users.service'
+import { UsersService, UserEntity } from '.'
 import { getRepositoryToken } from '@nestjs/typeorm'
-import { User } from './user.entity'
 import { userRepository } from './mock/user.repository'
 
 describe('UsersService', () => {
@@ -12,7 +11,7 @@ describe('UsersService', () => {
       providers: [
         UsersService,
         {
-          provide: getRepositoryToken(User),
+          provide: getRepositoryToken(UserEntity),
           useFactory: userRepository
         }
       ]
